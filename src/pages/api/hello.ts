@@ -3,7 +3,8 @@ import { runBuilderIOCommand } from '@/test'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 type Data = {
-  name: any
+  name: any,
+  hello:any
 }
 
 export default async function handler(
@@ -11,7 +12,8 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   console.log("CALLED")
-  const builders=await runBuilderIOCommand('npm run builder -h');
+  const builders=await runBuilderIOCommand('npm run-script builder -h');
   console.log(builders)
-  res.status(200).json({ name : builders })
+  res.status(200).json({ name : builders ,
+                          hello:'Hello'})
 }
