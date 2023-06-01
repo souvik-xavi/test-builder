@@ -12,7 +12,7 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   console.log("CALLED")
-  const builders=await runBuilderIOCommand('npm ls');
+  const builders=await runBuilderIOCommand('npm run builder');
   console.log(builders)
   res.status(200).json({ name : builders ,
                           hello:'Hello'})
